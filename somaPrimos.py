@@ -9,6 +9,7 @@ while num>1:
         if num % i == 0:
             cont=cont+1
     if (cont==2):
+        
         soma=soma+num
 
 print(soma)
