@@ -1,0 +1,5 @@
+nome = str(input('Nome Completo: '))
+print('Nome em Caixa Alta : ',nome.upper())
+print('Nome em Caixa Baixa : ',nome.lower())
+pNome = nome.split()
+print(pNome[0])
