@@ -1,14 +1,14 @@
-num = int(input("Digite um Numero  Decimal : "))
 
-
-while num>0:
-
+num = int(input("Digite um Numero  Inteiro Decimal : "))
+binario = []
+i = 0
+while num > 0:
 
     if num % 2 == 0:
-
+        binario[i] = 0
     else:
+        binario[i] = 1
+num = num /2
+i = i +1
+print(binario[i])
 
-
-    for i in range(1, num):
-
-        print(bin[i])
