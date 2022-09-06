@@ -10,5 +10,5 @@ while num > 0:
         binario[i] = 1
 num = num /2
 i = i +1
-print(binario[i])
+print(binario[i],end='')
 
