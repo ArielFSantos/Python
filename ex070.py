@@ -15,7 +15,7 @@ while True :
         min = price
         nameMin = name
 
-    exit = int(input('Digite 0 para Sair : '))
-    if  exit == 0:
+    exit = str(input('Deseja Continuar ? [S/N] :')).strip().upper()[0]
+    if  exit == 'N':
         break
 print('Total Gasto : {} \nAcima de R$1.000 : {} \nProduto Mais Barato : R${:.2f} {}'.format(total,contM,min,nameMin))

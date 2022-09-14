@@ -1,0 +1,5 @@
+tulipa = ('um','dois','tres','quatro','cinco','seis','sete','oito','nove','dez')
+print('Os 5 Primeiros São :',tulipa[0:5])
+print('Os Ultimos 4 :',tulipa[-4:])
+print(sorted(tulipa))
+print(tulipa.index('sete'))
