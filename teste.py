@@ -1,7 +1,6 @@
-
-nome=0
-for c in range (0,3):
-    bin = str(input('Numero : '))
-
-    nome = bin
-print(nome)
+lista = [5,6,7,8,1,4]
+listaord = sorted(lista)
+print(lista)
+print(listaord)
+print('Menor',listaord[0])
+print('Maior',listaord[len(listaord) -1 ])
