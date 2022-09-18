@@ -1,5 +1,6 @@
 tupla = (int(input('Digite um Valor : ')),int(input('Digite outro Valor : ')),int(input('Digite outro Valor : ')),int(input('Digite outro Valor : ')))
 contNove = 0
+
 for c in range (0,4):
      if tupla[c] == 9:
           contNove += 1
