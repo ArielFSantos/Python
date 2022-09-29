@@ -1,4 +1,4 @@
-biblioteca = {'aprovado':'APROVADO','reprovado':'REPROVADO'}
+biblioteca = {}
 biblioteca['nome'] = str(input('Qual seu Nome: '))
 biblioteca['media'] = float(input(f'Media de {biblioteca["nome"]} : '))
 if biblioteca["media"] >=7:
@@ -6,5 +6,6 @@ if biblioteca["media"] >=7:
 else:
     biblioteca['situac'] = 'Reprovado'
 print('-=' * 25)
-print(f'Ola {biblioteca["nome"]} Sua Média é {biblioteca["media"]} Voce esta {biblioteca["situac"]}')
+for v,s in biblioteca.items():
+    print(f'{v} = {s}')
 print('-=' * 25)
