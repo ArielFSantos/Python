@@ -9,5 +9,8 @@ if cadastro['clt'] != 0:
     idade_aposent = (datetime.now().year - cadastro['idade'])+35
     ano_aposent = cadastro['contrato']+35
     print(f'Ola {cadastro["nome"]} Voce ira se aposentar com {idade_aposent} Anos, em {ano_aposent} ')
+    for k, v in cadastro.items():
+        print(f'{k} = {v}')
 else:
-    print('FIM')
+    for k, v in cadastro.items():
+        print(f'{k} = {v}')
