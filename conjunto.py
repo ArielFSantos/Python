@@ -1,22 +1,17 @@
-lista = []
-listaAux = []
-aux = 0
+listaNum = []
+def group1(choice):
+    return group2([],choice)
+
+def group2(current, group):
+    if group:
+        return group2(current,group[1:]) + group2(current+[group[0]],group[1:])
+    return [current]
+
 while True:
-    aux = int(input('Digite Conjunto: '))
-    if aux == 0:
+    num= int(input('Digite um Numero: '))
+    if num == 0 :
         break
+    listaNum.append(num)
 
-    lista.append(aux)
-
-
-listaAux = lista
-cont = len(lista) - 1
-
-
-for c in range(0,len(lista)):
-    print(listaAux)
-    for b in range(0,len(listaAux)):
-        print(listaAux[b], end='')
-
-    listaAux.pop()
-
+choice = listaNum
+print(group1(choice)[1:])
