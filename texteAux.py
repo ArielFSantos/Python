@@ -1,9 +1,10 @@
-cadastroF = []
+cadastroF = {'descricao':,'fabricante':,'voltagem,part number, tamanho, unidade de media, tipo de ferramenta}
 cadastrogeralF = []
 temp =[]
 cadastroT = {}
 id = 0
 def cadastroFerramentas(choice):
+
     temp.append(id)
     temp.append(input('Descrição da Ferramenta: '))
     temp.append(input('Fabricante: '))
@@ -17,7 +18,6 @@ def cadastroFerramentas(choice):
     cadastrogeralF.append(temp[:])
     temp.clear()
     print(cadastrogeralF)
-
 
 
 def cadastroTecnicos(choice):
