@@ -1,3 +1,8 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import sklearn
+
 import matplotlib.pyplot as plt
 dias = []
 vest = []
@@ -24,6 +29,7 @@ class despesas:
 class graficos:
     def grafAliment():
         plt.plot(dias,aliment,label='Alimentação',marker='o',markerfacecolor = 'Blue')
+        plt.plot(dias,aliment,  c = 'g', ls='-', lw='1', marker='x', label='Predição')
         plt.title('Despesas de Alimentação')
         plt.ylabel('Despesas em R$')
         plt.xlabel('Dia')
