@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-
 dias = []
 vest = []
 transp = []
@@ -7,22 +6,60 @@ aliment = []
 
 quantdias = int(input('Quantos dias: '))
 
-for c in range(1,quantdias+1):
+class despesas:
+    def aliment():
+        for c in range(0, quantdias):
+            dias.append(c + 1)
+            aux = int(input(f'Gasto dia {c + 1} Com Alimentação: '))
+            aliment.append(aux)
+    def vest():
+        for c in range(0, quantdias):
+            aux = int(input(f'Gasto dia {c + 1} Com Vestuario: '))
+            vest.append(aux)
+    def transp():
+        for c in range(0, quantdias):
+            aux = int(input(f'Gasto dia {c + 1} Com Transporte: '))
+            transp.append(aux)
 
-    dias.append(c)
-    aux = int(input(f'Gasto dia {c} Com Alimentação: '))
-    aliment.append(aux)
-    aux = int(input(f'Gasto dia {c} Com Vestuario: '))
-    vest.append(aux)
-    aux = int(input(f'Gasto dia {c} Com Transporte: '))
-    transp.append(aux)
+class graficos:
+    def grafAliment():
+        plt.plot(dias,aliment,label='Alimentação',marker='o',markerfacecolor = 'Blue')
+        plt.title('Despesas de Alimentação')
+        plt.ylabel('Despesas em R$')
+        plt.xlabel('Dia')
+        plt.legend(loc=2)
+        plt.show()
+    def grafVest():
+        plt.plot(dias,vest,label='Vestuario',marker='o',markerfacecolor = 'Blue')
+        plt.title('Despesas de Vestimenta')
+        plt.ylabel('Despesas em R$')
+        plt.xlabel('Dia')
+        plt.legend(loc=2)
+        plt.show()
 
-plt.plot(dias,aliment,label='Alimentação',marker='o',markerfacecolor = 'Blue')
-plt.plot(dias,vest,label='Vestuario',marker='o',markerfacecolor = 'Blue')
-plt.plot(dias,transp,label='Transporte',marker='o',markerfacecolor = 'Blue')
+    def grafTransp():
+        plt.plot(dias,transp,label='Transporte',marker='o',markerfacecolor = 'Blue')
+        plt.title('Despesas de Transporte')
+        plt.ylabel('Despesas em R$')
+        plt.xlabel('Dia')
+        plt.legend(loc=2)
+        plt.show()
+    def grafGeral():
+        plt.plot(dias, transp, label='Transporte', marker='o', markerfacecolor='Blue')
+        plt.plot(dias, vest, label='Vestuario', marker='o', markerfacecolor='Blue')
+        plt.plot(dias, aliment, label='Alimentação', marker='o', markerfacecolor='Blue')
+        plt.title('Grafico Despesas Gerais')
+        plt.ylabel('Despesas em R$')
+        plt.xlabel('Dia')
+        plt.legend(loc=2)
+        plt.show()
 
-plt.title('Gráficos de Despesas')
-plt.ylabel('Despesas em R$')
-plt.xlabel('Dia')
-plt.legend(loc=2)
-plt.show()
+
+despesas.aliment()
+despesas.vest()
+despesas.transp()
+
+graficos.grafAliment()
+graficos.grafVest()
+graficos.grafTransp()
+graficos.grafGeral()
