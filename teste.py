@@ -1,18 +1,20 @@
-cadastroF = []
-cadastrogeralF = []
-temp=[]
-cadastroT = {}
-id = 0
-def cadastroFerramentas(choice):
+import matplotlib.pyplot as plt
+x = []
+y = []
 
-    temp.append(id)
-    cadastrogeralF.append(temp[:])
-    temp.clear()
-    print(cadastrogeralF)
 
-choice = int(input('Opções \n1 Cadastro de Ferramentas \n2 Cadastro de Técnicos\n'))
-while True:
-    if choice == 1:
-        id += 1
-        cadastroFerramentas(choice)
-    choice = int(input('Opções \n1 Cadastro de Ferramentas \n2 Cadastro de Técnicos\n'))
+dias = int(input('Quantos dias: '))
+for c in range (0,dias):
+    x.append(c+1)
+    y.append(input('Digite o Valor :'))
+
+
+
+plt.title('Gráfico de Despesas')
+plt.ylabel('Despesas')
+plt.xlabel('Mês')
+plt.plot(x,y)
+plt.legend(loc=2)
+plt.show()
+
+
