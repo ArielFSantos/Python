@@ -1,21 +1,31 @@
 import matplotlib.pyplot as plt
-x = []
-despesas = []
+c=0
+dias = []
+aliment = []
+vest = []
+transp = []
 
-dias = int(input('Quantos dias: '))
+quantdias = int(input('Quantos dias: '))
 
-for c in range (0,dias):
-    x.append(c+1)
-    despesas.append(input('Digite o Valor :'))
+for c in range(c,quantdias):
 
-y=despesas[:]
+    dias.append(c+1)
+    aux = int(input(f'Gasto dia {c+1} Com Alimentação: '))
+    aliment.append(aux)
+    aux = int(input(f'Gasto dia {c+1} Com Vestuario: '))
+    vest.append(aux)
+    aux = int(input(f'Gasto dia {c+1} Com Transporte: '))
+    transp.append(aux)
 
-plt.title('Gráfico de Despesas')
-plt.ylabel('Despesas')
-plt.xlabel('Mês')
-plt.axis(ymin=0)
-plt.plot(x,y)
+plt.plot(dias,aliment,label='Alimentação',marker='o',markerfacecolor = 'Blue')
+plt.plot(dias,vest,label='Vestuario',marker='o',markerfacecolor = 'Blue')
+plt.plot(dias,transp,label='Transporte',marker='o',markerfacecolor = 'Blue')
+
+plt.title('Gráficos de Despesas')
+plt.ylabel('Despesas em R$')
+plt.xlabel('Dia')
 plt.legend(loc=2)
 plt.show()
+
 
 
