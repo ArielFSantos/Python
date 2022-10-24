@@ -1,20 +1,16 @@
-
-import numpy as np
 import matplotlib.pyplot as plt
 
-"""
-Inserindo titulo e legendas
-"""
-x = np.arange(1, 11)
-print(x)
+x = [1,2,3,4,5]
+y = [100,0,0,150,0]
+b = [0,40,50,0,45]
+c = [0,0,100,300,50]
 
-plt.figure(figsize=(6, 4))
-plt.plot(x, 2*x, color='#17a589', label='f(x) = 2x') # green
-plt.plot(x, x/2, color='red', label='f(x) = x/2')
-plt.plot(x, x+3, color='#f4d03f', label='f(x) = x + 3') # yellow
+plt.plot(x,y,label='Alimentação',marker='o',markerfacecolor = 'Blue')
+plt.plot(x,b,label='Vestuario',marker='o',markerfacecolor = 'Blue')
+plt.plot(x,c,label='Transporte',marker='o',markerfacecolor = 'Blue')
 
-plt.grid(True)
-plt.title('Retas Simples')
-plt.legend()
-plt.savefig('reta-titulo-legendas.png')
+plt.title('Gráficos de Despesas')
+plt.ylabel('Despesas em R$')
+plt.xlabel('Dia')
+plt.legend(loc=2)
 plt.show()

@@ -1,14 +1,17 @@
 import matplotlib.pyplot as plt
 
-x = [1,2,3,4,5,6,7]
-y = [2,5,6,7,8,1,0]
-b = [1,2,3,4,5,6,7]
-c = [7,8,6,5,4,1,2]
+x = [1,2,3,4,5]
+y = [100,0,0,150,0]
+b = [0,40,50,0,45]
+c = [0,0,100,300,50]
 
-plt.plot(x,y,label='teste1')
-plt.plot(b,c,label='teste2')
+plt.plot(x,y,label='Alimentação',marker='o',markerfacecolor = 'Blue')
+plt.plot(x,b,label='Vestuario',marker='o',markerfacecolor = 'Blue')
+plt.plot(x,c,label='Transporte',marker='o',markerfacecolor = 'Blue')
 
-plt.title('Graficos Teste')
+plt.title('Gráficos de Despesas')
+plt.ylabel('Despesas em R$')
+plt.xlabel('Dia')
 plt.legend(loc=2)
 plt.show()
 
