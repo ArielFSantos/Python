@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import sklearn
+from sklearn.linear_model import LinearRegression
+
 
 import matplotlib.pyplot as plt
 dias = []
@@ -28,6 +28,14 @@ class despesas:
 
 class graficos:
     def grafAliment():
+
+        linear_regressor = LinearRegression()  # create object for the class
+        linear_regressor.fit(dias, aliment)  # perform linear regression
+        Y_pred = linear_regressor.predict(aliment)
+        plt.scatter(dias, Y_pred)
+
+
+
         plt.plot(dias,aliment,label='Alimentação',marker='o',markerfacecolor = 'Blue')
         plt.plot(dias,aliment,  c = 'g', ls='-', lw='1', marker='x', label='Predição')
         plt.title('Despesas de Alimentação')
@@ -64,6 +72,8 @@ class graficos:
 despesas.aliment()
 despesas.vest()
 despesas.transp()
+
+
 
 graficos.grafAliment()
 graficos.grafVest()
