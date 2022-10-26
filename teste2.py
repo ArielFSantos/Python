@@ -1,17 +1,26 @@
-import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from sklearn.datasets import make_regression
+from sklearn.linear_model import LinearRegression
+from matplotlib import pyplot as plt
 
-x = [1,2,3,4,5]
-y = [100,0,0,150,0]
-b = [0,40,50,0,45]
-c = [0,0,100,300,50]
+label = {}
+a = [1,2,3,4,5]
+b = [33,45,55,62,77]
 
-plt.plot(x,y,label='Alimentação',marker='o',markerfacecolor = 'Blue')
-plt.plot(x,b,label='Vestuario',marker='o',markerfacecolor = 'Blue')
-plt.plot(x,c,label='Transporte',marker='o',markerfacecolor = 'Blue')
+x = np.array(a).reshape(-1,1)
+reg = LinearRegression().fit(x,b)
+a_coeff = reg.coef_
+l_coeff = reg.intercept_
 
+plt.plot(a,l_coeff+a_coeff*a,color='red')
+
+plt.plot(a,b,label='Vestuario',marker='o',markerfacecolor = 'Blue')
 plt.title('Gráficos de Despesas')
 plt.ylabel('Despesas em R$')
 plt.xlabel('Dia')
 plt.legend(loc=2)
 plt.show()
+
+
 

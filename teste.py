@@ -1,9 +1,8 @@
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LinearRegression
-
-
 import matplotlib.pyplot as plt
+
 dias = []
 vest = []
 transp = []
@@ -29,12 +28,14 @@ class despesas:
 class graficos:
     def grafAliment():
 
-        linear_regressor = LinearRegression()  # create object for the class
-        linear_regressor.fit(dias, aliment)  # perform linear regression
-        Y_pred = linear_regressor.predict(aliment)
-        plt.scatter(dias, Y_pred)
 
+        x = np.array(dias).reshape(-1, 1)
 
+        reg = LinearRegression().fit(x, aliment)
+
+        a_coeff = reg.coef_
+        l_coeff = reg.intercept_
+        plt.plot(dias, l_coeff + a_coeff * dias, color='red')
 
         plt.plot(dias,aliment,label='Alimentação',marker='o',markerfacecolor = 'Blue')
         plt.plot(dias,aliment,  c = 'g', ls='-', lw='1', marker='x', label='Predição')
@@ -44,6 +45,13 @@ class graficos:
         plt.legend(loc=2)
         plt.show()
     def grafVest():
+
+        x = np.array(dias).reshape(-1, 1)
+        reg = LinearRegression().fit(x, vest)
+        a_coeff = reg.coef_
+        l_coeff = reg.intercept_
+        plt.plot(dias, l_coeff + a_coeff * dias, color='red')
+
         plt.plot(dias,vest,label='Vestuario',marker='o',markerfacecolor = 'Blue')
         plt.title('Despesas de Vestimenta')
         plt.ylabel('Despesas em R$')
@@ -52,6 +60,13 @@ class graficos:
         plt.show()
 
     def grafTransp():
+
+        x = np.array(dias).reshape(-1, 1)
+        reg = LinearRegression().fit(x, transp)
+        a_coeff = reg.coef_
+        l_coeff = reg.intercept_
+        plt.plot(dias, l_coeff + a_coeff * dias, color='red')
+
         plt.plot(dias,transp,label='Transporte',marker='o',markerfacecolor = 'Blue')
         plt.title('Despesas de Transporte')
         plt.ylabel('Despesas em R$')
@@ -59,6 +74,7 @@ class graficos:
         plt.legend(loc=2)
         plt.show()
     def grafGeral():
+
         plt.plot(dias, transp, label='Transporte', marker='o', markerfacecolor='Blue')
         plt.plot(dias, vest, label='Vestuario', marker='o', markerfacecolor='Blue')
         plt.plot(dias, aliment, label='Alimentação', marker='o', markerfacecolor='Blue')
@@ -73,9 +89,30 @@ despesas.aliment()
 despesas.vest()
 despesas.transp()
 
-
-
 graficos.grafAliment()
 graficos.grafVest()
 graficos.grafTransp()
 graficos.grafGeral()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
