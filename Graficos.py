@@ -1,4 +1,7 @@
+import numpy as np
+from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
+
 dias = []
 vest = []
 transp = []
@@ -23,13 +26,26 @@ class despesas:
 
 class graficos:
     def grafAliment():
+        x = np.array(dias).reshape(-1, 1)
+        reg = LinearRegression().fit(x, aliment)
+        a_coeff = reg.coef_
+        l_coeff = reg.intercept_
+        plt.plot(dias, l_coeff + a_coeff * dias, label='Regressão', color='red' )
+
         plt.plot(dias,aliment,label='Alimentação',marker='o',markerfacecolor = 'Blue')
+        plt.plot(dias,aliment,  c = 'g', ls='-', lw='1', marker='x',)
         plt.title('Despesas de Alimentação')
         plt.ylabel('Despesas em R$')
         plt.xlabel('Dia')
         plt.legend(loc=2)
         plt.show()
     def grafVest():
+        x = np.array(dias).reshape(-1, 1)
+        reg = LinearRegression().fit(x, vest)
+        a_coeff = reg.coef_
+        l_coeff = reg.intercept_
+        plt.plot(dias, l_coeff + a_coeff * dias,label='Regressão',color='red')
+
         plt.plot(dias,vest,label='Vestuario',marker='o',markerfacecolor = 'Blue')
         plt.title('Despesas de Vestimenta')
         plt.ylabel('Despesas em R$')
@@ -38,6 +54,12 @@ class graficos:
         plt.show()
 
     def grafTransp():
+        x = np.array(dias).reshape(-1, 1)
+        reg = LinearRegression().fit(x, transp)
+        a_coeff = reg.coef_
+        l_coeff = reg.intercept_
+        plt.plot(dias, l_coeff + a_coeff * dias,label='Regressão', color='red')
+
         plt.plot(dias,transp,label='Transporte',marker='o',markerfacecolor = 'Blue')
         plt.title('Despesas de Transporte')
         plt.ylabel('Despesas em R$')
@@ -63,3 +85,26 @@ graficos.grafAliment()
 graficos.grafVest()
 graficos.grafTransp()
 graficos.grafGeral()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
