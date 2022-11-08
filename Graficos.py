@@ -12,18 +12,21 @@ class Graficos:
         self.despesa = despesa
         self.nome = nome
 
-    def GerarGrafico(self):
+    def Regressao(self):
         x = np.array(dias).reshape(-1, 1)
         reg = LinearRegression().fit(x, self.despesa)
         a_coeff = reg.coef_
         l_coeff = reg.intercept_
         plt.plot(dias, l_coeff + a_coeff * dias, label='Regressão', color='red')
-        plt.plot(dias, self.despesa, label=f'{self.nome}', marker='o',markerfacecolor='Blue')
+        Graficos.GerarGrafico(self)
+
+    def GerarGrafico(self):
+        plt.plot(dias, self.despesa, label=f'{self.nome}', marker='o', markerfacecolor='Blue')
         plt.title(f'Despesas de {self.nome}')
         plt.ylabel('Despesas em R$')
         plt.xlabel('Dia')
         plt.legend(loc=2)
-        plt.show()
+        plt.show
     @staticmethod
     def GraficoGeral():
         plt.plot(dias, aliment, label='Alimentação', marker='o')
@@ -52,9 +55,9 @@ sorted(dias)
 despesa1 = Graficos(vest,'Vestimenta')
 despesa2 = Graficos(transp,'Transporte')
 despesa3 = Graficos(aliment,'Alimentação')
-despesa1.GerarGrafico()
-despesa2.GerarGrafico()
-despesa3.GerarGrafico()
+despesa1.Regressao()
+despesa2.Regressao()
+despesa3.Regressao()
 Graficos.GraficoGeral()
 
 
