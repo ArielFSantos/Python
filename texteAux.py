@@ -26,7 +26,7 @@ class Graficos:
         plt.show()
     @staticmethod
     def GraficoGeral():
-        plt.plot(dias, aliment, label='Alimentação', marker='o')
+        plt.plot(despesa1)
         plt.plot(dias, vest, label='Vestimenta', marker='o')
         plt.plot(dias, transp, label='Transporte', marker='o')
         plt.title('Gráfico de Despesas')
