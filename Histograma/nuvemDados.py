@@ -2,14 +2,24 @@ from matplotlib import pyplot as plt
 from faker import Faker
 from random import randint
 
-nome = []
+nomes = []
 pont = []
-
 fk = Faker()
 
-for c in range(0, 4):
-    nome.append(fk.name())
-    pont.append(randint(0,10))
+with open("dados.txt",'w') as arquivo:
+    for c in range(0, 100):
+        arquivo.write(fk.name() + str(randint(0,11)) +'\n')
 
-pont.hist()
+
+with open("dados.txt",'r') as arquivo:
+    for v in arquivo:
+        nomes.append(v[:-2])
+        pont.append(int(v[-2]))
+
+
+plt.hist(pont, label='Histograma das Pontuações')
+plt.ylabel('Pontuações')
+plt.xlabel('Probabilidades')
+plt.grid('5')
+
 plt.show()
