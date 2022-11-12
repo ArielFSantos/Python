@@ -20,4 +20,3 @@ plt.ylabel('Probabilidade')
 plt.xlabel('Pontuações')
 plt.grid("5")
 plt.show()
- 
