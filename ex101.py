@@ -1,13 +1,12 @@
 def voto(age):
     idade = 2022 - age
     if idade < 16:
-        print("Voce é Muito Novo Nao Precisa Votar")
-    elif idade < 18 and idade > 15:
-        print("Voto facultativo 1")
-    elif idade > 17 and idade < 70:
-        print("Voto Obrigatorio")
+        return "Voce é Muito Novo Nao Precisa Votar"
+    elif 16 >= idade < 18 or idade > 65:
+        return "Voto facultativo 1"
     else:
-        print("Voto Facultativo 2")
+        return 'Voto Obrigatorio'
+
 
 age = int(input("Ano de Nascimento: "))
-voto(age)
+print(voto(age))
