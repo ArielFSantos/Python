@@ -44,7 +44,7 @@ while True:
     if choice == 4:
         if extrato == "":
             print('Não Foram Realizadas Movimentações')
-    print('Saldo Atual da Conta: R$ ', saldo)
-    print('Obrigado, Tenha um Bom dia <3')
-    break
+        print('Saldo Atual da Conta: R$ ', saldo)
+        print('Obrigado, Tenha um Bom dia <3')
+        break
 
