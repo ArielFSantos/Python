@@ -6,7 +6,7 @@ contas = []
 numero_conta = 0
 
 
-def op_saque(saldo,limite_saque,extrato):
+def op_saque(*,saldo,limite_saque,extrato):
 
     if limite_saque != 0:
         limite_saque -= 1

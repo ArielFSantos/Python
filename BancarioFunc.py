@@ -6,10 +6,7 @@ contas = []
 numero_conta = 0
 
 
-def op_saque():
-    global saldo
-    global limite_saque
-    global extrato
+def op_saque(*,saldo,limite_saque,extrato):
 
     if limite_saque != 0:
         limite_saque -= 1
@@ -24,17 +21,16 @@ def op_saque():
         extrato += f'\nSaque: R${value}'
     else:
         print('Limite de Saque Excedido')
+    return saldo,limite_saque,extrato
 
-
-def op_deposito():
-    global extrato
-    global saldo
+def op_deposito(extrato,saldo):
     value = int(input('Digite o Valor do Deposito: R$ '))
     while value < 1:
         print('Valor Invalido!"')
         value = int(input('Digite o Valor do Deposito: R$ '))
     saldo += value
     extrato += f'\nDeposito: R${value}'
+    return extrato,saldo
 
 
 def op_extrato(extrato, saldo):
@@ -56,8 +52,7 @@ def op_novo_usuario(usuarios):
     usuarios.append(list_aux)
 
 
-def op_nova_conta(contas):
-    global numero_conta
+def op_nova_conta(contas,numero_conta):
     numero_conta += 1
     list_aux = []
     list_aux.append('001')
@@ -71,6 +66,7 @@ def op_nova_conta(contas):
     list_aux.append(aux)
     contas.append(list_aux)
     print(contas)
+    return numero_conta
 
 
 def op_lista(contas, usuarios):
@@ -98,9 +94,19 @@ def op_saida():
     print('Obrigado, Tenha um Bom dia <3')
 
 
-def main():
-    while True:
-        print(20 * '=-')
+
+while True:
+    print(20 * '=-')
+    print('[1] Saque '
+          '\n[2] Deposito '
+          '\n[3] Extrato '
+          '\n[4] Adicionar '
+          '\n[5] Listar'
+          '\n[0] Sair ')
+    choice = int(input("Qual Operação Deseja Realizar?: "))
+    print(20 * '=-')
+    while choice < 0 or choice > 7:
+        print('Escolha Invalida!"')
         print('[1] Saque '
               '\n[2] Deposito '
               '\n[3] Extrato '
@@ -109,43 +115,32 @@ def main():
               '\n[0] Sair ')
         choice = int(input("Qual Operação Deseja Realizar?: "))
         print(20 * '=-')
-        while choice < 0 or choice > 7:
-            print('Escolha Invalida!"')
-            print('[1] Saque '
-                  '\n[2] Deposito '
-                  '\n[3] Extrato '
-                  '\n[4] Adicionar '
-                  '\n[5] Listar'
-                  '\n[0] Sair ')
-            choice = int(input("Qual Operação Deseja Realizar?: "))
-            print(20 * '=-')
 
-        if choice == 1:
-            op_saque()
-        elif choice == 2:
-            op_deposito()
-        elif choice == 3:
-            op_extrato(extrato, saldo)
-        elif choice == 4:
-            while True:
-                choice = int(input('[1] Nova Conta '
-                                   '\n[2] Novo Usuario'
-                                   '\n[0] Sair'
-                                   '\nOperação : '))
-                if choice == 2:
-                    op_novo_usuario(usuarios)
-                if choice == 1:
-                    op_nova_conta(contas)
-                if choice == 0:
-                    break
-        elif choice == 5:
-            op_lista(contas, usuarios)
+    if choice == 1:
+        saldo, limite_saque, extrato = op_saque(saldo=saldo,limite_saque=limite_saque,extrato=extrato)
+    elif choice == 2:
+        extrato, saldo = op_deposito(extrato,saldo)
+    elif choice == 3:
+        op_extrato(extrato, saldo)
+    elif choice == 4:
+        while True:
+            choice = int(input('[1] Nova Conta '
+                               '\n[2] Novo Usuario'
+                               '\n[0] Sair'
+                               '\nOperação : '))
+            if choice == 2:
+                op_novo_usuario(usuarios)
+            if choice == 1:
+                op_nova_conta(contas)
+            if choice == 0:
+                break
+    elif choice == 5:
+        op_lista(contas, usuarios)
 
-        elif choice == 6:
-            op_novo_usuario(usuarios)
-        elif choice == 0:
-            op_saida()
-            break
+    elif choice == 6:
+        op_novo_usuario(usuarios)
+    elif choice == 0:
+        op_saida()
+        break
 
 
-main()
