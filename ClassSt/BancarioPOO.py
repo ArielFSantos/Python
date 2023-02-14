@@ -9,6 +9,27 @@ class Bancario():
         self.numero_conta = numero_conta
 
 
+    def start(self):
+        while True:
+            print(20 * '=-')
+            print('[1] Saque '
+                  '\n[2] Deposito '
+                  '\n[3] Extrato '
+                  '\n[4] Adicionar '
+                  '\n[5] Listar'
+                  '\n[0] Sair ')
+            choice = int(input("Qual Operação Deseja Realizar?: "))
+            print(20 * '=-')
+            while choice < 0 or choice > 7:
+                print('Escolha Invalida!"')
+                print('[1] Saque '
+                      '\n[2] Deposito '
+                      '\n[3] Extrato '
+                      '\n[4] Adicionar '
+                      '\n[5] Listar'
+                      '\n[0] Sair ')
+                choice = int(input("Qual Operação Deseja Realizar?: "))
+                print(20 * '=-')
     def op_saque(self):
 
         if self.limite_saque != 0:
@@ -101,3 +122,4 @@ class Bancario():
 
 
 conta1 = Bancario()
+conta1.start()
